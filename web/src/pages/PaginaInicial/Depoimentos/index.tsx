@@ -13,7 +13,7 @@ text-align: center;
 
 const Texto = styled.p`
     line-height: 19px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--cinza-escuro);
     text-align: center;
 `
@@ -39,6 +39,12 @@ export default function Depoimentos () {
             </Texto>
             <Subtitulo>Júlio, 40 anos, São Paulo/SP.</Subtitulo>
             <Linha/>
+            <Texto>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</Texto>
+            <Subtitulo>Júlio, 40 anos, São Paulo/SP.</Subtitulo>
+            <Linha />
+            <Texto>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</Texto>
+            <Subtitulo>Júlio, 40 anos, São Paulo/SP.</Subtitulo>
+            <Linha />
         </Container>       
     )
 }
