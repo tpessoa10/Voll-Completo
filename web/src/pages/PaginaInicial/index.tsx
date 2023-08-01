@@ -11,7 +11,6 @@ function PaginaInicial(){
         align-items: center;
     `
 
-
     return (
         <>
             <Banner/>
