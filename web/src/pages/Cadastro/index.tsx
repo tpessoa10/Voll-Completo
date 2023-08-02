@@ -85,28 +85,33 @@ export default function Cadastro(){
                         <StepCustomizada cor={props.active ? 'lightblue' : 'lightgray'} />
                     )}/>
                 </Step>
-            </Stepper> 
-            <Titulo>Primeiro, alguns dados básicos</Titulo>
-            <Formulario>
-                <CampoDigitacao tipo='text' valor={nome} placeholder='Insira o nome da clínica' onChange={setNome} label='Nome'/>
-                <CampoDigitacao tipo='text' valor={cnpj} placeholder='Insira o CNPJ' onChange={setCnpj} label='CNPJ'/>
-                <CampoDigitacao tipo='text' valor={email} placeholder='Insira o Email' onChange={setEmail} label='Email'/>
-                <CampoDigitacao tipo='password' valor={senha} placeholder='Digite sua senha' onChange={setSenha} label='Crie uma senha'/>
-                <CampoDigitacao tipo='password' valor={senhaVerificada} placeholder='Digite sua senha novamente' onChange={setSenhaVerificada} label='Repita a senha'/>
-                <BotaoEstilizado type='submit'>Avançar</BotaoEstilizado>
-            </Formulario>
-            <Titulo>Agora, os dados técnicos</Titulo>
-            <Formulario>
-                <CampoDigitacao tipo='tel' valor={telefone} placeholder='(DDD)XXXXX-XXXX' onChange={setTelefone} label='Telefone'/>
-                <CampoDigitacao tipo='number' valor={cep} placeholder='Informe o CEP' onChange={setCep} label='CEP'/>
-                <CampoDigitacao tipo='text' valor={rua} placeholder='Rua' onChange={setRua} label='Endereço'/>
-                <Container>
-                    <CampoDigitacao tipo='number' valor={numero} placeholder='Número' onChange={setNumero}/>
-                    <CampoDigitacao tipo='text' valor={complemento} placeholder='Complemento' onChange={setComplemento}/>
-                    <CampoDigitacao tipo='text' valor={estado} placeholder='Estado' onChange={setEstado}/>
-                </Container>
-                <BotaoEstilizado type='submit'>Cadastrar</BotaoEstilizado>
-            </Formulario>
+            </Stepper>
+            {etapaAtiva === 0 ? (
+                <><Titulo>Primeiro, alguns dados básicos</Titulo>
+                <Formulario onSubmit={handleSubmit}>
+                    <CampoDigitacao tipo='text' valor={nome} placeholder='Insira o nome da clínica' onChange={setNome} label='Nome' />
+                    <CampoDigitacao tipo='text' valor={cnpj} placeholder='Insira o CNPJ' onChange={setCnpj} label='CNPJ' />
+                    <CampoDigitacao tipo='text' valor={email} placeholder='Insira o Email' onChange={setEmail} label='Email' />
+                    <CampoDigitacao tipo='password' valor={senha} placeholder='Digite sua senha' onChange={setSenha} label='Crie uma senha' />
+                    <CampoDigitacao tipo='password' valor={senhaVerificada} placeholder='Digite sua senha novamente' onChange={setSenhaVerificada} label='Repita a senha' />
+                    <BotaoEstilizado type='submit'>Avançar</BotaoEstilizado>
+                </Formulario></>
+            ): 
+            <><Titulo>Agora, os dados técnicos</Titulo>
+                <Formulario onSubmit={handleSubmit}>
+                    <CampoDigitacao tipo='tel' valor={telefone} placeholder='(DDD)XXXXX-XXXX' onChange={setTelefone} label='Telefone' />
+                    <CampoDigitacao tipo='number' valor={cep} placeholder='Informe o CEP' onChange={setCep} label='CEP' />
+                    <CampoDigitacao tipo='text' valor={rua} placeholder='Rua' onChange={setRua} label='Endereço' />
+                    <Container>
+                        <CampoDigitacao tipo='number' valor={numero} placeholder='Número' onChange={setNumero} />
+                        <CampoDigitacao tipo='text' valor={complemento} placeholder='Complemento' onChange={setComplemento} />
+                        <CampoDigitacao tipo='text' valor={estado} placeholder='Estado' onChange={setEstado} />
+                    </Container>
+                    <BotaoEstilizado type='submit'>Cadastrar</BotaoEstilizado>
+                </Formulario></>
+            } 
+            
+
         </>
     )
 }
