@@ -46,10 +46,9 @@ const Formulario = styled.form`
 `
 const Container = styled.div`
     width: 100%;
-`
-
-const CampoDigitacaoPersonalizado = styled(CampoDigitacao)`
-    width: 20%;
+    display: grid;
+    grid-template-columns: 33% 65%;
+    justify-content: space-between
 `
 
 export default function Cadastro(){
@@ -63,6 +62,8 @@ export default function Cadastro(){
     const [cep, setCep] = useState('')
     const [rua, setRua] = useState('')
     const [numero, setNumero] = useState('')
+    const [complemento, setComplemento] = useState('')
+    const [estado, setEstado] = useState('')
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -92,7 +93,7 @@ export default function Cadastro(){
                 <CampoDigitacao tipo='text' valor={email} placeholder='Insira o Email' onChange={setEmail} label='Email'/>
                 <CampoDigitacao tipo='password' valor={senha} placeholder='Digite sua senha' onChange={setSenha} label='Crie uma senha'/>
                 <CampoDigitacao tipo='password' valor={senhaVerificada} placeholder='Digite sua senha novamente' onChange={setSenhaVerificada} label='Repita a senha'/>
-                <BotaoEstilizado>Criar Conta</BotaoEstilizado>
+                <BotaoEstilizado type='submit'>Avançar</BotaoEstilizado>
             </Formulario>
             <Titulo>Agora, os dados técnicos</Titulo>
             <Formulario>
@@ -100,8 +101,11 @@ export default function Cadastro(){
                 <CampoDigitacao tipo='number' valor={cep} placeholder='Informe o CEP' onChange={setCep} label='CEP'/>
                 <CampoDigitacao tipo='text' valor={rua} placeholder='Rua' onChange={setRua} label='Endereço'/>
                 <Container>
-                        <CampoDigitacao tipo='number' valor={numero} placeholder='Número' onChange={setNumero}/>
+                    <CampoDigitacao tipo='number' valor={numero} placeholder='Número' onChange={setNumero}/>
+                    <CampoDigitacao tipo='text' valor={complemento} placeholder='Complemento' onChange={setComplemento}/>
+                    <CampoDigitacao tipo='text' valor={estado} placeholder='Estado' onChange={setEstado}/>
                 </Container>
+                <BotaoEstilizado type='submit'>Cadastrar</BotaoEstilizado>
             </Formulario>
         </>
     )

@@ -28,10 +28,11 @@ interface Props{
     valor: string,
     placeholder: string,
     onChange: (value: string) => void,
-    label?: string;
+    label?: string,
+    estilo?: string;
 }
 
-export default function CampoDigitacao ({tipo, valor, placeholder, onChange, label}: Props) {
+export default function CampoDigitacao ({tipo, valor, placeholder, onChange, label, estilo}: Props) {
     return (
         <Container>
             <Rotulo>{label}</Rotulo>
