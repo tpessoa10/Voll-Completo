@@ -5,8 +5,9 @@ import styled from "styled-components";
 import Botao from "../../components/Botao";
 import { Link } from "react-router-dom";
 import Logo from '../../components/Cabecalho/assets/logo.png'
+import usePost from "../../usePost";
 
-const Formulario = styled.div`
+const Formulario = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,16 +38,35 @@ const Imagem = styled.img`
     padding: 1.5em 0 2em 0;
 `
 
+interface ILogin{
+    email: string,
+    senha:string
+}
+
 
 export default function Login () {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+    const {cadastrarDados, erro, sucesso} = usePost()
+
+    const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const usuario: ILogin = {
+            email: email,
+            senha: senha
+        }
+        try{
+            cadastrarDados({url:"auth/login", dados: usuario})
+        } catch(erro) {
+            erro && alert('Não foi possível fazer login')
+        }
+    }
 
     return (
             <>
             <Imagem src={Logo} style={{paddingBottom: 20}} alt="Logo empresa Voll" />
             <TituloLogin>Faça login em sua conta</TituloLogin>
-            <Formulario>
+            <Formulario onSubmit={handleLogin}>
                 <CampoDigitacao valor={email} tipo="text" placeholder="Insira seu endereço de email" onChange={setEmail} label="Email" />
                 <CampoDigitacao valor={senha} tipo="password" placeholder="Insira sua senha" onChange={setSenha} label="Senha" />
                 <BotaoCustomizado type="submit">Entrar</BotaoCustomizado>
