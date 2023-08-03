@@ -31,4 +31,4 @@ class AutenticaStore{
 
 const autenticaStore = new AutenticaStore()
 
-export default AutenticaStore;
+export default autenticaStore;
